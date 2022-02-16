@@ -278,7 +278,7 @@ class _HomePageState extends State<HomePage> {
               body: Get.isDarkMode
                   ? "Activated Light theme"
                   : "Activated Dark theme");
-          notifyHelper.scheduledNotification();
+          //notifyHelper.scheduledNotification();
         },
         child: Icon(
           Get.isDarkMode ? Icons.wb_sunny_outlined : Icons.nightlight_round,
