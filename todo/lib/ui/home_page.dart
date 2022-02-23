@@ -59,18 +59,22 @@ class _HomePageState extends State<HomePage> {
         return ListView.builder(
             itemCount: _taskController.taskList.length,
             itemBuilder: (_, index) {
+              print("ddddd");
               print(_taskController.taskList.length);
+              // for (Task task in _taskController.taskList) {
+              //   _taskController.delete(task);
+              // }
 
               Task task = _taskController.taskList[index];
               if (task.repeat == 'Daily') {
-                DateTime date =
-                    DateFormat.jm().parse(task.startTime.toString());
-                var myTime = DateFormat("HH:mm").format(date);
-                notifyHelper.scheduledNotification(
-                  int.parse(myTime.toString().split(":")[0]),
-                  int.parse(myTime.toString().split(":")[1]),
-                  task,
-                );
+                // DateTime date =
+                //     DateFormat.jm().parse(task.startTime.toString());
+                // var myTime = DateFormat("HH:mm").format(date);
+                // notifyHelper.scheduledNotification(
+                //   int.parse(myTime.toString().split(":")[0]),
+                //   int.parse(myTime.toString().split(":")[1]),
+                //   task,
+                // );
                 return AnimationConfiguration.staggeredList(
                   position: index,
                   child: SlideAnimation(

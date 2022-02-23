@@ -69,7 +69,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 children: [
                   Expanded(
                       child: MyInputField(
-                    title: "Start Date",
+                    title: "Start Time",
                     hint: _startTime,
                     widget: IconButton(
                       onPressed: () {
@@ -86,7 +86,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   ),
                   Expanded(
                       child: MyInputField(
-                    title: "End Date",
+                    title: "End Time",
                     hint: _endTime,
                     widget: IconButton(
                       onPressed: () {
@@ -191,6 +191,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
             Icons.warning_amber_rounded,
             color: Colors.red,
           ));
+    }
+    if (_titleController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Processing Data')),
+      );
     }
   }
 

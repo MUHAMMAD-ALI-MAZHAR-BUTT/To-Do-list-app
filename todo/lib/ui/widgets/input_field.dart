@@ -12,7 +12,8 @@ class MyInputField extends StatelessWidget {
       required this.title,
       required this.hint,
       this.controller,
-      this.widget})
+      this.widget,
+      validator})
       : super(key: key);
 
   @override
@@ -39,6 +40,12 @@ class MyInputField extends StatelessWidget {
             child: Row(children: [
               Expanded(
                   child: TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 readOnly: widget == null ? false : true,
                 autofocus: false,
                 cursorColor:
