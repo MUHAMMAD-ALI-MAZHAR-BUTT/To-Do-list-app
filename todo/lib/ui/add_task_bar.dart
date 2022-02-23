@@ -182,20 +182,35 @@ class _AddTaskPageState extends State<AddTaskPage> {
     if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
       _addTaskToDb();
       Get.back();
-    } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
-      Get.snackbar("Required", "All fields are required !",
-          snackPosition: SnackPosition.BOTTOM,
+    } else if (_titleController.text.isEmpty && _noteController.text.isEmpty) {
+      Get.snackbar("Required", "Title and note are required !",
+          snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.white,
           colorText: pinkClr,
           icon: const Icon(
             Icons.warning_amber_rounded,
             color: Colors.red,
           ));
-    }
-    if (_titleController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Processing Data')),
-      );
+    } else if (_titleController.text.isEmpty &&
+        _noteController.text.isNotEmpty) {
+      Get.snackbar("Required", "Title is required !",
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.white,
+          colorText: pinkClr,
+          icon: const Icon(
+            Icons.warning_amber_rounded,
+            color: Colors.red,
+          ));
+    } else if (_titleController.text.isNotEmpty &&
+        _noteController.text.isEmpty) {
+      Get.snackbar("Required", "Note is required !",
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.white,
+          colorText: pinkClr,
+          icon: const Icon(
+            Icons.warning_amber_rounded,
+            color: Colors.red,
+          ));
     }
   }
 
